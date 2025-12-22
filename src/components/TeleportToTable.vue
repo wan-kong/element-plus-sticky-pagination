@@ -10,14 +10,14 @@ const props = withDefaults(defineProps<{
 const isReady = ref(false)
 
 nextTick().then(() => {
-    if (props.table.scrollBarRef.wrapRef) {
+    if (props.table?.$refs.bodyWrapper) {
         isReady.value = true
     }
 })
 </script>
 
 <template>
-    <Teleport v-if="isReady && !props.disabled" :to="props.table.scrollBarRef.wrapRef">
+    <Teleport v-if="isReady && !props.disabled" :to="props.table!.$refs.bodyWrapper as Element">
         <div class="teleport-to-body-footer">
             <slot />
         </div>

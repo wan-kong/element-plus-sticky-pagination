@@ -42,8 +42,12 @@ const tableRef = useTemplateRef('tableRef')
   <div class="container">
     <div class="table-box">
       <el-table ref="tableRef" :data="tableData" height="100%" v-loading="loading">
-        <el-table-column prop="name" label="Name"></el-table-column>
-        <el-table-column prop="age" label="Age"></el-table-column>
+        <el-table-column prop="name" label="Name" fixed="left"></el-table-column>
+        <el-table-column prop="age" label="Age" min-width="140px"></el-table-column>
+        <el-table-column prop="age" label="Age" min-width="140px"></el-table-column>
+        <el-table-column prop="age" label="Age" min-width="140px"></el-table-column>
+        <el-table-column prop="age" label="Age" min-width="140px"></el-table-column>
+        <el-table-column prop="age" label="Age" min-width="140px"></el-table-column>
       </el-table>
     </div>
     <TeleportToTable :table="tableRef">
@@ -57,11 +61,11 @@ const tableRef = useTemplateRef('tableRef')
 
 <style>
 .container {
-  width: 80vw;
   display: flex;
   flex-direction: column;
   height: 80vh;
   margin: 0 auto;
+  max-width: 400px;
   background-color: #ffffff;
 }
 
@@ -70,12 +74,21 @@ const tableRef = useTemplateRef('tableRef')
   flex: 1 0 0px;
 }
 
+.el-table__body-wrapper {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.el-table__body-wrapper .el-scrollbar {
+  height: fit-content;
+}
+
+.el-table__inner-wrapper::before {
+  display: none;
+}
+
 .pagination-right {
   justify-content: flex-end;
 }
-
-/* remove table after border */
-/* .table-box .el-table--fit .el-table__inner-wrapper:before {
-  display: none;
-} */
 </style>
