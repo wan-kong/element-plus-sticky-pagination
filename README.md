@@ -1,5 +1,35 @@
-# Vue 3 + TypeScript + Vite
+# Element Plus Sticky Pagination
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+将 Element Plus 分页器固定在表格底部的示例。
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+## 效果演示
+
+<video src="./docs/video.mov" controls></video>
+
+## 使用方法
+
+```vue
+<script setup>
+import TeleportToTable from './components/TeleportToTable.vue'
+import { useTemplateRef } from 'vue'
+
+const tableRef = useTemplateRef('tableRef')
+</script>
+
+<template>
+  <el-table ref="tableRef" :data="tableData" height="100%">
+    <!-- 表格列 -->
+  </el-table>
+
+  <TeleportToTable :table="tableRef">
+    <el-pagination :total="total" />
+  </TeleportToTable>
+</template>
+```
+
+## 运行
+
+```bash
+pnpm install
+pnpm dev
+```
