@@ -4,7 +4,8 @@
 
 ## 效果演示
 
-<video src="./docs/video.mov" controls></video>
+https://github.com/user-attachments/assets/6dacbcfd-b63c-4da2-a613-9299de18aa35
+
 
 ## 使用方法
 
